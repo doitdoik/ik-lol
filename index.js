@@ -8,3 +8,12 @@ app.listen(port, function(){
     console.log("HTML 서버 시작");
 });
 
+app.get("/summoner_name", (req, res) => {
+    let api = async() => {
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
+})
