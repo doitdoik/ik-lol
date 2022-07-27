@@ -1,7 +1,8 @@
 let express = require("express");
+let axios = require("axios");
 let app = express();
 let port = process.env.PORT || 80;
-let apiKey = "RGAPI-6087e0e6-293f-4243-87b9-526d83d648eb";
+let apiKey = "RGAPI-6e5392c1-377e-4352-8323-b7a2545d982f";
 let url = ""
 app.use(express.static("lol_html"));
 
@@ -10,14 +11,14 @@ app.listen(port, function(){
 });
 
 app.get("/summoner_name", (req, res) => {
-    console.log(res);
+    //console.log(res);
     console.log("3333333333333333");
     //console.log(req);
     let api = async() => {
         let response = null;
         try {
             console.log(url);
-            url += "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+ summonerName + "?api_key=" + apiKey;
+            url += "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+ encodeURI("베란다고양이") + "?api_key=" + apiKey;
             response = await axios.get(url, {
                 params : {
                   
