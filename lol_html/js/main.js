@@ -1,34 +1,33 @@
+let searchRes = new Object;
 
 async function searchSummoner(){
     let summonerName = $('#summonerName').val();
-	let requestURL = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+ summonerName + "?api_key=";
 	// console.log(summonerName);
-	
     if(summonerName=="" || summonerName==null){
 		alert("닉네임을 입력해주세요.");		
 	}else{
-		
-		console.log("1111111111111111111111")
+		console.log("2222222222222222222");
 		$.ajax({
 			url : "/summoner_name",
 			type : "GET",	 
             cache : false,
 			dataType : "json",
 			data: {
-				"summonerName" : summonerName,
-				"requestURL" : requestURL
+				"summonerName" : summonerName
+				
 			},
 			success: function (res) {
-				console.log("2222222222222222222");
-				// searchRes.id = res.id;
-				// searchRes.accountId = res.accountId;
-				// searchRes.puuid = res.puuid;
-				// searchRes.name = res.name;
-				// searchRes.profileIconId = res.profileIconId;
-				// searchRes.revisionDate = res.revisionDate;
-				// searchRes.summonerLevel = res.summonerLevel;
-				var test = JSON.parse(res.result);
-				console.log(test);
+				console.log(res);
+				console.log("success@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+				searchRes.id = res.id;
+				searchRes.accountId = res.accountId;
+				searchRes.puuid = res.puuid;
+				searchRes.name = res.name;
+				searchRes.profileIconId = res.profileIconId;
+				searchRes.revisionDate = res.revisionDate;
+				searchRes.summonerLevel = res.summonerLevel;
+				var test = res.id;
+				//console.log(searchRes);
 				return res;
 				 
 			},error:function(e, textStatus){
@@ -38,4 +37,8 @@ async function searchSummoner(){
 			}
 		});	
 	}    
+}
+
+function objTest(){
+	console.log(searchRes);
 }
