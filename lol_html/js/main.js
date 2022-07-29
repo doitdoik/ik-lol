@@ -1,6 +1,6 @@
 let searchRes = new Object;
 
-async function searchSummonerId(){
+function searchSummonerId(){
     let summonerName = $('#summonerName').val();
 	
 	// console.log(summonerName);
@@ -17,7 +17,7 @@ async function searchSummonerId(){
 				"summonerName" : summonerName
 				
 			},
-			success: async function (res) {
+			success: function (res) {
 				// console.log(res);
 				searchRes.id = res.id;
 				searchRes.accountId = res.accountId;
@@ -29,7 +29,7 @@ async function searchSummonerId(){
 				
 				// console.log(searchRes);
 				// return res;
-				return await searchSummonerInfo(searchRes.id);
+				return searchSummonerInfo(searchRes.id);
 			},error:function(e, textStatus){
 				console.log("error");
 				console.log(e);
@@ -39,7 +39,7 @@ async function searchSummonerId(){
 	}    
 }
 
-async function searchSummonerInfo(id){
+function searchSummonerInfo(id){
 	$('#search_res').empty();
 	console.log("info");
 	console.log(id);
@@ -52,7 +52,7 @@ async function searchSummonerInfo(id){
 		data : {
 			"summonerId" : id
 		},
-		success : async function (res) {
+		success : function (res) {
 			// console.log(res);
 			obj = document.getElementById("search_res");
 			let newDiv = document.createElement("div");
