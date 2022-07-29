@@ -61,7 +61,7 @@ function searchSummonerInfo(id){
 								+"전적 - " + res[0].wins + "승 / " + res[0].losses + "패" + "<br>"
 								+"티어 - " + res[0].tier + " " + res[0].rank + " "  + "<br>"
 								+"리그포인트 - " + res[0].leaguePoints + "<br>"
-								+"<img src='/img/rank/Emblem_" + res[0].tier + ".png' style='width:150px; height:150px;'><br>"
+								+'<img src="/img/rank/Emblem_' + res[0].tier + '.png" style="width:150px; height:150px;"><br>'
 								;
 				
 			obj.appendChild(newDiv);
