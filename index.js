@@ -2,12 +2,22 @@ let express = require("express");
 let axios = require("axios");
 let app = express();
 let port = process.env.PORT || 80;
+let fs = require("fs");
 let apiKey = "RGAPI-70e55e20-80a5-4973-9a4e-56cc064e9942";
 
 app.use(express.static("lol_html"));
 
 app.listen(port, function(){
     console.log("HTML 서버 시작");
+});
+
+app.get("/search", (req, res) => {
+    console.log("111111");
+    fs.readFile("lol_html/search.html", (error, data) => {
+        console.log("2222222");
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.end(data);
+    });
 });
 
 // 소환사 닉네임으로 id 찾기

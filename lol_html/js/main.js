@@ -71,3 +71,8 @@ function searchSummonerInfo(id){
 		}
 	})
 }
+
+
+function newSearch(){
+	location.href = "/search";
+}
