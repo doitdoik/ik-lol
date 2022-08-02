@@ -3,7 +3,7 @@ let axios = require("axios");
 let app = express();
 let port = process.env.PORT || 80;
 let fs = require("fs");
-let apiKey = "RGAPI-70e55e20-80a5-4973-9a4e-56cc064e9942";
+let apiKey = "RGAPI-7b734d37-2db0-4bad-b41f-e1b133324fec";
 
 app.use(express.static("lol_html"));
 
