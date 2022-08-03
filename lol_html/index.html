@@ -5,20 +5,22 @@
         <script type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
-        <div>
-            <img src="/img/logo/LoL_Icon_Rendered_Hi-Res.png" alt="" style="width: 150px; height:150px;">
-            <img src="/img/logo/LoL_Logo_Rendered_LARGE.png" alt="" style="height:150px;">
-            <link type="text/css" rel="stylesheet" href="/css/main.css">
+        <div class="wrap_div">
+            <div>
+                <img src="/img/logo/LoL_Icon_Rendered_Hi-Res.png" alt="" style="width: 150px; height:150px;">
+                <img src="/img/logo/LoL_Logo_Rendered_LARGE.png" alt="" style="height:150px;">
+                <link type="text/css" rel="stylesheet" href="/css/main.css">
+            </div>
+            <div>
+                <input type="text" id="summonerName">
+                <button onclick="searchSummonerId()">
+                    검색
+                </button>
+                <button onclick="newSearch()">
+                    새탭
+                </button>
+            </div>
+            <div id="search_res"></div>
         </div>
-        <div>
-            <input type="text" id="summonerName">
-            <button onclick="searchSummonerId()">
-                검색
-            </button>
-            <button onclick="newSearch()">
-                새탭
-            </button>
-        </div>
-        <div id="search_res"></div>
     </body>
 </html>
