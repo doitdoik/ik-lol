@@ -52,7 +52,7 @@ function searchSummonerInfo(id){
 		data : {
 			"summonerId" : id
 		},
-		success : function (res) {
+		success : function(res) {
 			// console.log(res);
 			obj = document.getElementById("search_res");
 			let newDiv = document.createElement("div");
@@ -66,6 +66,7 @@ function searchSummonerInfo(id){
 				
 			obj.appendChild(newDiv);
 			return res;
+			// return newSearch(searchRes, res[0]);
 		},error : function(e, textStatus){
 			console.log(e);
 		}
@@ -74,5 +75,18 @@ function searchSummonerInfo(id){
 
 
 function newSearch(){
-	location.href = "/search";
+	location.href = "/search/"
+	// let summonerName = $('#summonerName').val();
+	// $.ajax({
+	// 	url : "/search/",
+	// 	type : "GET",
+	// 	cache : false,
+	// 	//dataType : "json",
+	// 	data : summonerName,
+	// 	success : (res) => {
+	// 		console.log(res);
+	// 	},error : (e, textStatus) => {
+	// 		console.log(e);
+	// 	}
+	// });
 }
