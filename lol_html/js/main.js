@@ -53,27 +53,29 @@ function searchSummonerInfo(id){
 			"summonerId" : id
 		},
 		success : function(res) {
-			// console.log(res);
+		
+			// console.log(res[0]);
 			// console.log("뭔데");
-			obj = document.getElementById("search_res");
-			let newDiv = document.createElement("div");
-			newDiv.innerHTML = "닉네임 - " + searchRes.name + "<br>"
-								+"소환사레벨 - " + searchRes.summonerLevel + "<br>"
-								+"전적 - " + res[0].wins + "승 / " + res[0].losses + "패" + "<br>"
-								+"티어 - " + res[0].tier + " " + res[0].rank + " "  + "<br>"
-								+"리그포인트 - " + res[0].leaguePoints + "<br>"
-								+'<img src="/img/rank/Emblem_' + res[0].tier + '.png" style="width:150px; height:150px;"><br>'
-								;
+			// obj = document.getElementById("search_res");
+			// let newDiv = document.createElement("div");
+			// newDiv.innerHTML = "닉네임 - " + searchRes.name + "<br>"
+			// 					+"소환사레벨 - " + searchRes.summonerLevel + "<br>"
+			// 					+"전적 - " + res[0].wins + "승 / " + res[0].losses + "패" + "<br>"
+			// 					+"티어 - " + res[0].tier + " " + res[0].rank + " "  + "<br>"
+			// 					+"리그포인트 - " + res[0].leaguePoints + "<br>"
+			// 					+'<img src="/img/rank/Emblem_' + res[0].tier + '.png" style="width:150px; height:150px;"><br>'
+			// 					;
+			// obj.appendChild(newDiv);
 			searchRes.wins = res[0].wins;				
 			searchRes.losses = res[0].losses;
 			searchRes.tier = res[0].tier;
 			searchRes.rank = res[0].rank;
 			searchRes.leaguePoints = res[0].leaguePoints;
-			console.log("============================================================");
-			console.log(searchRes);
-			obj.appendChild(newDiv);
-			return res;
-			// return newSearch(searchRes);
+			// console.log("============================================================");
+			// console.log(searchRes);
+			// location.href = "/search/"+ searchRes.name;
+			// return res;
+			return newSearch();
 		},error : function(e, textStatus){
 			console.log(e);
 		}
@@ -101,18 +103,39 @@ function searchSummonerInfo(id){
 // }
 
 
-function newSearch(totalData){
+function newSearch(){
+	let totalData = searchRes;
 	let summonerName = totalData.name;
 	console.log("최종단");
-	console.log(totalData);
 	$.ajax({
-		url : "/search/"+summonerName,
-		type : "POST",
+		url : "/search",
+		type : "GET",
 		cache : false,
-		//dataType : "json",
+		// dataType : "json",
 		data : totalData,
 		success : (res) => {
-			// location.href = "/search/"+summonerName;
+			// location.href = "search";
+			console.log("123123123123123");
+			console.log(res);
+		},error : (e, textStatus) => {
+			console.log("987987987987");
+			console.log(e);
+		}
+	});
+	movePage();
+}
+
+function movePage(){
+	console.log("들어와야지");
+	$.ajax({
+		url : "/test2",
+		type : "POST",
+		cache : false,
+		// dataType : "json",
+		// data : totalData,
+		success : (res) => {
+			//location.href = "test2";
+			$("#goSearch").click();
 			console.log("123123123123123");
 			console.log(res);
 		},error : (e, textStatus) => {

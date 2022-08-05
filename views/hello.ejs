@@ -5,13 +5,20 @@
   <head>
     <meta charset="utf-8">
     <title>Hello World!</title>
+
   </head>
   <body>
-    <h1>Hello
-      <%= name.name %>
-    </h1>
-    <h2>
+    <div>닉네임 - <%= name %></div>
+    <div>소환사레벨 - <%= level %></div>
+    <div>전적 - <%= wins %> 승 / <%= losses %> 패</div>
+    <div>티어 - <%= tier %></div>
+    <div>리그포인트 - <%= leaguePoints %></div>
+    <div id="test">  
       <%= tier %>
-    </h2>
+    </div>
+    <h1>Hello
+    </h1>
+    <img src=<%= img %> style="width:150px; height:150px;"><br>
+
   </body>
 </html>

@@ -5,6 +5,8 @@ let port = process.env.PORT || 80;
 let fs = require("fs");
 let apiKey = "RGAPI-47a99c03-eb2f-4d89-8e63-259b6c603e26";
 let search = require('./lol_html/js/search.js');
+let summonerInfo = new Object;
+
 app.set("view engine", "ejs");
 app.use(express.static("lol_html"));
 app.engine("html", require("ejs").renderFile);
@@ -30,30 +32,77 @@ app.listen(port, function(){
 //     // });
 // });
 
-app.post("/search/:summonerId", (req, res) => {
-    console.log("post 왔다");
-    //console.log(res);
-})
+app.get("/test", (req, res) => {
+    fs.readFile("lol_html/js/search.js", "utf8" ,(error, data) => {
+        console.log("2222222");
+        // console.log(res);
+        let title = "베란다고양이 검색 결과";
+        let name = "베란다고양이";
+        let tmp = req.query;
+        let html = search.HTML(title, name, tmp);
+        res.send(html);
+    });
+});
 
-app.get("/search/:summonerId", (req, res) => {
+// app.get("/test2", (req, res) => {
+//     console("여기지??");
+//     res.render("hello");
+// });
+
+app.post("/test2", (req, res) => {
+    // console.log(req);
+    let title = summonerInfo.name;
+    let tier = summonerInfo.tier;
+
+    // res.render("hello");
+    res.render("hello", {
+        "name" : summonerInfo.name, 
+        "tier" : summonerInfo.tier,
+        "level" : summonerInfo.summonerLevel,
+        "rank" : summonerInfo.rank,
+        "wins" : summonerInfo.wins,
+        "losses" : summonerInfo.losses,
+        "leaguePoints" : summonerInfo.leaguePoints,
+        "img" : "/img/rank/Emblem_"+summonerInfo.tier+".png"
+    });
+});
+
+// app.post("/search/:summonerId", (req, res) => {
+//     console.log("post 왔다");
+//     // console.log(req);
+// })
+
+app.get("/search", (req, res) => {
     console.log("오는거야?");
-    console.log(req.params);
-    let summonerInfo = req.query;
     console.log(summonerInfo);
-    let summonerName = summonerInfo.name;
-    let summonerTier = summonerInfo.tier;
-    console.log(summonerName);
+    // console.log(res);
+    summonerInfo.name = req.query.name;
+    summonerInfo.tier = req.query.tier;
+    summonerInfo.id = req.query.id;
+    summonerInfo.accountId = req.query.accountId;
+    summonerInfo.puuid = req.query.puuid;
+    summonerInfo.profileIconId = req.query.profileIconId;
+    summonerInfo.revisionDate = req.query.revisionDate;
+    summonerInfo.summonerLevel = req.query.summonerLevel;
+    summonerInfo.wins = req.query.wins;				
+    summonerInfo.losses = req.query.losses;
+    summonerInfo.rank = req.query.rank;
+    summonerInfo.leaguePoints = req.query.leaguePoints;
+    // console.log(summonerName);
     //console.log(summonerName);
-    console.log(summonerTier);
-    res.render("hello", {"name" : summonerInfo, "tier" : summonerTier});
+    // console.log(summonerTier);
+ //   res.render("hello", {"name" : summonerInfo.name, "tier" : summonerInfo.tier});
     
-    // fs.readFile("lol_html/js/search.js", "utf8" ,(error, data) => {
+    // fs.readFile("views/hello.ejs", "utf8" ,(error, data) => {
     //     console.log("2222222");
     //     // console.log(res);
     //     let title = summonerName + " 검색 결과";
     //     let name = summonerName;
-    //     let tmp = req.query;
-    //     let html = search.HTML(title, name, tmp);
+    //     let info = {
+    //         "title" : title,
+    //         "name" : name
+    //     };
+    //     let html = search.HTML(title, name, info);
     //     res.send(html);
     // });
 });
@@ -99,7 +148,7 @@ app.get("/get_summoner_info", (req, res) => {
             console.log("error");
             console.log(error);
         };
-        
+        // console.log(response);
         return response;
     }
     api().then((response) => {
