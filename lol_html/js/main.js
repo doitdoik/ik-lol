@@ -54,6 +54,7 @@ function searchSummonerInfo(id){
 		},
 		success : function(res) {
 			// console.log(res);
+			// console.log("뭔데");
 			obj = document.getElementById("search_res");
 			let newDiv = document.createElement("div");
 			newDiv.innerHTML = "닉네임 - " + searchRes.name + "<br>"
@@ -63,30 +64,60 @@ function searchSummonerInfo(id){
 								+"리그포인트 - " + res[0].leaguePoints + "<br>"
 								+'<img src="/img/rank/Emblem_' + res[0].tier + '.png" style="width:150px; height:150px;"><br>'
 								;
-				
+			searchRes.wins = res[0].wins;				
+			searchRes.losses = res[0].losses;
+			searchRes.tier = res[0].tier;
+			searchRes.rank = res[0].rank;
+			searchRes.leaguePoints = res[0].leaguePoints;
+			console.log("============================================================");
+			console.log(searchRes);
 			obj.appendChild(newDiv);
 			return res;
-			// return newSearch(searchRes, res[0]);
+			// return newSearch(searchRes);
 		},error : function(e, textStatus){
 			console.log(e);
 		}
 	})
 }
 
+// function newSearch(){
+// 	//let summonerName = totalData.name;
 
-function newSearch(){
-	location.href = "/search/"
-	// let summonerName = $('#summonerName').val();
-	// $.ajax({
-	// 	url : "/search/",
-	// 	type : "GET",
-	// 	cache : false,
-	// 	//dataType : "json",
-	// 	data : summonerName,
-	// 	success : (res) => {
-	// 		console.log(res);
-	// 	},error : (e, textStatus) => {
-	// 		console.log(e);
-	// 	}
-	// });
+// 	$.ajax({
+// 		url : "/search/",
+// 		type : "GET",
+// 		cache : false,
+// 		//dataType : "json",
+// 		data : {"name" : "베란다고양이"},
+// 		success : (res) => {
+// 			//location.href = "/search/";
+// 			console.log("123123123123123");
+// 			console.log(res);
+// 		},error : (e, textStatus) => {
+// 			console.log("987987987987");
+// 			console.log(e);
+// 		}
+// 	});
+// }
+
+
+function newSearch(totalData){
+	let summonerName = totalData.name;
+	console.log("최종단");
+	console.log(totalData);
+	$.ajax({
+		url : "/search/"+summonerName,
+		type : "POST",
+		cache : false,
+		//dataType : "json",
+		data : totalData,
+		success : (res) => {
+			// location.href = "/search/"+summonerName;
+			console.log("123123123123123");
+			console.log(res);
+		},error : (e, textStatus) => {
+			console.log("987987987987");
+			console.log(e);
+		}
+	});
 }
