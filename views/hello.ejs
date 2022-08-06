@@ -4,21 +4,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello World!</title>
-
+    <title><%= name %> 검색결과</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/main.css">
   </head>
   <body>
-    <div>닉네임 - <%= name %></div>
-    <div>소환사레벨 - <%= level %></div>
-    <div>전적 - <%= wins %> 승 / <%= losses %> 패</div>
-    <div>티어 - <%= tier %></div>
-    <div>리그포인트 - <%= leaguePoints %></div>
-    <div id="test">  
-      <%= tier %>
+    <div class="wrap_div">
+      <div>닉네임 - <%= name %></div>
+      <div>소환사레벨 - <%= level %></div>
+      <div>전적 - <%= wins %> 승 / <%= losses %> 패</div>
+      <div>티어 - <%= tier %> <%= rank %></div>
+      <div>리그포인트 - <%= leaguePoints %></div>
+      <div>
+        <img src=<%= img %> style="width:150px; height:150px;"><br>
+      </div>
     </div>
-    <h1>Hello
-    </h1>
-    <img src=<%= img %> style="width:150px; height:150px;"><br>
-
   </body>
 </html>

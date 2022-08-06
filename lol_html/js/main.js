@@ -56,13 +56,14 @@ function searchSummonerInfo(id){
 			for(let i = 0; i<res.length; i++){
 				console.log(res[i].queueType);
 				if(res[i].queueType == 'RANKED_SOLO_5x5'){
-					searchRes.wins = res[0].wins;				
-					searchRes.losses = res[0].losses;
-					searchRes.tier = res[0].tier;
-					searchRes.rank = res[0].rank;
-					searchRes.leaguePoints = res[0].leaguePoints;
+					searchRes.wins = res[i].wins;				
+					searchRes.losses = res[i].losses;
+					searchRes.tier = res[i].tier;
+					searchRes.rank = res[i].rank;
+					searchRes.leaguePoints = res[i].leaguePoints;
 				}
 			}
+			console.log(searchRes);
 			// console.log(res[0]);
 			// console.log("뭔데");
 			// obj = document.getElementById("search_res");
