@@ -49,7 +49,7 @@ app.get("/test", (req, res) => {
 //     res.render("hello");
 // });
 
-app.post("/test2", (req, res) => {
+app.post("/search", (req, res) => {
     // console.log(req);
     let title = summonerInfo.name;
     let tier = summonerInfo.tier;

@@ -133,7 +133,7 @@ function newSearch(){
 function movePage(){
 	console.log("들어와야지");
 	$.ajax({
-		url : "/test2",
+		url : "/search",
 		type : "POST",
 		cache : false,
 		// dataType : "json",
