@@ -53,7 +53,16 @@ function searchSummonerInfo(id){
 			"summonerId" : id
 		},
 		success : function(res) {
-		
+			for(let i = 0; i<res.length; i++){
+				console.log(res[i].queueType);
+				if(res[i].queueType == 'RANKED_SOLO_5x5'){
+					searchRes.wins = res[0].wins;				
+					searchRes.losses = res[0].losses;
+					searchRes.tier = res[0].tier;
+					searchRes.rank = res[0].rank;
+					searchRes.leaguePoints = res[0].leaguePoints;
+				}
+			}
 			// console.log(res[0]);
 			// console.log("뭔데");
 			// obj = document.getElementById("search_res");
@@ -66,11 +75,7 @@ function searchSummonerInfo(id){
 			// 					+'<img src="/img/rank/Emblem_' + res[0].tier + '.png" style="width:150px; height:150px;"><br>'
 			// 					;
 			// obj.appendChild(newDiv);
-			searchRes.wins = res[0].wins;				
-			searchRes.losses = res[0].losses;
-			searchRes.tier = res[0].tier;
-			searchRes.rank = res[0].rank;
-			searchRes.leaguePoints = res[0].leaguePoints;
+
 			// console.log("============================================================");
 			// console.log(searchRes);
 			// location.href = "/search/"+ searchRes.name;
@@ -115,7 +120,7 @@ function newSearch(){
 		data : totalData,
 		success : (res) => {
 			// location.href = "search";
-			console.log("123123123123123");
+			// console.log("123123123123123");
 			console.log(res);
 		},error : (e, textStatus) => {
 			console.log("987987987987");

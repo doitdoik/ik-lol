@@ -73,8 +73,8 @@ app.post("/test2", (req, res) => {
 // })
 
 app.get("/search", (req, res) => {
-    console.log("오는거야?");
-    console.log(summonerInfo);
+    // console.log("오는거야?");
+    // console.log(req);
     // console.log(res);
     summonerInfo.name = req.query.name;
     summonerInfo.tier = req.query.tier;
