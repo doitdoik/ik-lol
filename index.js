@@ -55,7 +55,7 @@ app.post("/search", (req, res) => {
     let tier = summonerInfo.tier;
 
     // res.render("hello");
-    res.render("hello", {
+    res.render("search", {
         "name" : summonerInfo.name, 
         "tier" : summonerInfo.tier,
         "level" : summonerInfo.summonerLevel,
