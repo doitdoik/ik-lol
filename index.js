@@ -4,7 +4,6 @@ let app = express();
 let port = process.env.PORT || 80;
 let fs = require("fs");
 let apiKey = "RGAPI-47a99c03-eb2f-4d89-8e63-259b6c603e26";
-let search = require('./lol_html/js/search.js');
 let summonerInfo = new Object;
 
 app.set("view engine", "ejs");
@@ -32,17 +31,17 @@ app.listen(port, function(){
 //     // });
 // });
 
-app.get("/test", (req, res) => {
-    fs.readFile("lol_html/js/search.js", "utf8" ,(error, data) => {
-        console.log("2222222");
-        // console.log(res);
-        let title = "베란다고양이 검색 결과";
-        let name = "베란다고양이";
-        let tmp = req.query;
-        let html = search.HTML(title, name, tmp);
-        res.send(html);
-    });
-});
+// app.get("/test", (req, res) => {
+//     fs.readFile("lol_html/js/search.js", "utf8" ,(error, data) => {
+//         console.log("2222222");
+//         // console.log(res);
+//         let title = "베란다고양이 검색 결과";
+//         let name = "베란다고양이";
+//         let tmp = req.query;
+//         let html = search.HTML(title, name, tmp);
+//         res.send(html);
+//     });
+// });
 
 // app.get("/test2", (req, res) => {
 //     console("여기지??");
