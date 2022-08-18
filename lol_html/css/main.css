@@ -5,6 +5,7 @@ html{
 
 .wrap_div{
     text-align: center;
+    margin-top: 10%;
 }
 
 .summonerInput{
@@ -22,6 +23,3 @@ button {
     border-radius: 5px;
 }
 
-.tier_img{
-    width: 20%;
-}

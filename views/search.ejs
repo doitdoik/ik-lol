@@ -11,12 +11,14 @@
   </head>
   <body>
     <div class="wrap_div">
-      <div>닉네임 - <%= name %></div>
-      <div>소환사레벨 - <%= level %></div>
-      <div>전적 - <%= wins %> 승 / <%= losses %> 패</div>
-      <div>티어 - <%= tier %> <%= rank %></div>
-      <div>리그포인트 - <%= leaguePoints %></div>
-      <div>
+      <div class="info_div">
+        <div>닉네임 - <%= name %></div>
+        <div>소환사레벨 - <%= level %></div>
+        <div>전적 - <%= wins %> 승 / <%= losses %> 패</div>
+        <div>티어 - <%= tier %> <%= rank %></div>
+        <div>리그포인트 - <%= leaguePoints %></div>
+      </div>
+      <div class="img_div">
         <img class="tier_img" src=<%= img %> ><br>
       </div>
     </div>

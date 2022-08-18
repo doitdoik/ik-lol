@@ -10,3 +10,8 @@ html{
 .tier_img{
     height: 20vh;
 }
+
+.info_div{
+    margin-top: 10%;
+    font-size: 3vh;
+}
