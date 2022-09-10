@@ -1,17 +1,56 @@
 html{
-    background: gray;
-    color: white;
+    background: #555555;
+    /* color: white; */
+}
+
+body{
+    top: 25vh;
+    position: relative;
+    padding: 2vh;
 }
 
 .wrap_div{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background: white;
+    margin: 0 auto;
+    box-shadow: 10px 15px 10px rgb(0 0 0 / 80%)
+}
+
+.wrap_img{
+    padding: 30px;
+    padding-left: 0;
 }
 
 .tier_img{
-    height: 20vh;
+    width: 14vh;
 }
 
-.info_div{
-    margin-top: 10%;
-    font-size: 3vh;
+.wrap_info{
+    font-size: 2vh;
+    padding: 30px 0;
+    line-height: 3vh;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+button{
+    top: 30px;
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    float: right;
+    width: 8vh;
+    height: 5vh;
+    font-size: 2vh;
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }

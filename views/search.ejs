@@ -11,16 +11,19 @@
   </head>
   <body>
     <div class="wrap_div">
-      <div class="info_div">
-        <div>닉네임 - <%= name %></div>
-        <div>소환사레벨 - <%= level %></div>
-        <div>전적 - <%= wins %> 승 / <%= losses %> 패</div>
-        <div>티어 - <%= tier %> <%= rank %></div>
-        <div>리그포인트 - <%= leaguePoints %></div>
+      <div class="wrap_img">
+        <img class="tier_img" alt="리그 등급" width="90" style="border:0px;" src=<%= img %>>
       </div>
-      <div class="img_div">
-        <img class="tier_img" src=<%= img %> ><br>
+      <div class="wrap_info">
+        <!-- 랭킹: <a href="/ranking#129" target="_blank"><b>135위</b><span style="font-size:11px;" class="tipsy_live" tipsy="4,096,302 중 135위" original-title="">( 0.0033% )</span></a><br> -->
+        닉네임: <%= name %><br>
+        리그: 솔로랭크 5x5<br>
+        등급: <font color="#228822"><%= tier %> <%= rank %></font><br>
+        리그 포인트: <%= leaguePoints %><br>
+        <!-- 승급전: -<br><br> -->
+        전적: <%= wins %> 승 / <%= losses %> 패
       </div>
     </div>
+    <button><a href="/">뒤로</a></button>
   </body>
 </html>

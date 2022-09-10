@@ -61,26 +61,11 @@ function searchSummonerInfo(id){
 					searchRes.tier = res[i].tier;
 					searchRes.rank = res[i].rank;
 					searchRes.leaguePoints = res[i].leaguePoints;
+					searchRes.queueType = res[i].queueType;
 				}
 			}
 			console.log(searchRes);
-			// console.log(res[0]);
-			// console.log("뭔데");
-			// obj = document.getElementById("search_res");
-			// let newDiv = document.createElement("div");
-			// newDiv.innerHTML = "닉네임 - " + searchRes.name + "<br>"
-			// 					+"소환사레벨 - " + searchRes.summonerLevel + "<br>"
-			// 					+"전적 - " + res[0].wins + "승 / " + res[0].losses + "패" + "<br>"
-			// 					+"티어 - " + res[0].tier + " " + res[0].rank + " "  + "<br>"
-			// 					+"리그포인트 - " + res[0].leaguePoints + "<br>"
-			// 					+'<img src="/img/rank/Emblem_' + res[0].tier + '.png" style="width:150px; height:150px;"><br>'
-			// 					;
-			// obj.appendChild(newDiv);
 
-			// console.log("============================================================");
-			// console.log(searchRes);
-			// location.href = "/search/"+ searchRes.name;
-			// return res;
 			return newSearch();
 		},error : function(e, textStatus){
 			console.log(e);
@@ -88,25 +73,6 @@ function searchSummonerInfo(id){
 	})
 }
 
-// function newSearch(){
-// 	//let summonerName = totalData.name;
-
-// 	$.ajax({
-// 		url : "/search/",
-// 		type : "GET",
-// 		cache : false,
-// 		//dataType : "json",
-// 		data : {"name" : "베란다고양이"},
-// 		success : (res) => {
-// 			//location.href = "/search/";
-// 			console.log("123123123123123");
-// 			console.log(res);
-// 		},error : (e, textStatus) => {
-// 			console.log("987987987987");
-// 			console.log(e);
-// 		}
-// 	});
-// }
 
 
 function newSearch(){
@@ -132,7 +98,6 @@ function newSearch(){
 }
 
 function movePage(){
-	console.log("들어와야지");
 	$.ajax({
 		url : "/search",
 		type : "POST",
@@ -142,10 +107,8 @@ function movePage(){
 		success : (res) => {
 			//location.href = "test2";
 			$("#goSearch").click();
-			console.log("123123123123123");
 			console.log(res);
 		},error : (e, textStatus) => {
-			console.log("987987987987");
 			console.log(e);
 		}
 	});

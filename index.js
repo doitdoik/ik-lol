@@ -13,47 +13,11 @@ app.listen(port, function(){
     console.log("HTML 서버 시작");
 });
 
-// app.get("/search", (req, res) => {
-//     console.log("get 왔다");
-//     console.log(req.query);
-
-//     res.render("hello.ejs", {"data" : req.query.name}, (err, html) => {
-//         if (err){
-//             console.log(err);
-//         }
-//         res.redirect(html);
-//     });
-//     // fs.readFile("lol_html/search.html", (error, data) => {
-        
-//     //     console.log(data);
-//     //     res.writeHead(200, {'Content-Type': 'text/html'});
-//     //     res.end(data);
-//     // });
-// });
-
-// app.get("/test", (req, res) => {
-//     fs.readFile("lol_html/js/search.js", "utf8" ,(error, data) => {
-//         console.log("2222222");
-//         // console.log(res);
-//         let title = "베란다고양이 검색 결과";
-//         let name = "베란다고양이";
-//         let tmp = req.query;
-//         let html = search.HTML(title, name, tmp);
-//         res.send(html);
-//     });
-// });
-
-// app.get("/test2", (req, res) => {
-//     console("여기지??");
-//     res.render("hello");
-// });
 
 app.post("/search", (req, res) => {
-    // console.log(req);
     let title = summonerInfo.name;
     let tier = summonerInfo.tier;
 
-    // res.render("hello");
     res.render("search", {
         "name" : summonerInfo.name, 
         "tier" : summonerInfo.tier,
@@ -66,15 +30,9 @@ app.post("/search", (req, res) => {
     });
 });
 
-// app.post("/search/:summonerId", (req, res) => {
-//     console.log("post 왔다");
-//     // console.log(req);
-// })
+
 
 app.get("/search", (req, res) => {
-    // console.log("오는거야?");
-    // console.log(req);
-    // console.log(res);
     summonerInfo.name = req.query.name;
     summonerInfo.tier = req.query.tier;
     summonerInfo.id = req.query.id;
@@ -87,23 +45,7 @@ app.get("/search", (req, res) => {
     summonerInfo.losses = req.query.losses;
     summonerInfo.rank = req.query.rank;
     summonerInfo.leaguePoints = req.query.leaguePoints;
-    // console.log(summonerName);
-    //console.log(summonerName);
-    // console.log(summonerTier);
- //   res.render("hello", {"name" : summonerInfo.name, "tier" : summonerInfo.tier});
-    
-    // fs.readFile("views/hello.ejs", "utf8" ,(error, data) => {
-    //     console.log("2222222");
-    //     // console.log(res);
-    //     let title = summonerName + " 검색 결과";
-    //     let name = summonerName;
-    //     let info = {
-    //         "title" : title,
-    //         "name" : name
-    //     };
-    //     let html = search.HTML(title, name, info);
-    //     res.send(html);
-    // });
+ 
 });
 
 // 소환사 닉네임으로 id 찾기
