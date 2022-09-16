@@ -5,20 +5,27 @@ html{
 
 .wrap_div{
     text-align: center;
-    margin-top: 10%;
+    margin-top: 30vh;
+}
+
+.wrap_div > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .summonerInput{
-    width: 30%;
-    height: 5%;
+    width: 35vw;
+    height: 5vh;
     font-size: 1.5vh;
     border-radius: 5px;
 }
 
 
 button {
-    height: 5%;
-    width: 15%;
+    height: 5vh;
+    width: 15vw;
     font-size: 1.5vh;
     border-radius: 5px;
 }
